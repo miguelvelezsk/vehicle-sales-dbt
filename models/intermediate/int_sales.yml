@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: int_sales_by_category
+    description: "Intermediate calculations for sales participation by category"
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+      - name: product_id
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              arguments:
+                values: ["Shipped"]
+      - name: product_line
+        tests:
+          - not_null
+      - name: total_sales_amount
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: percentage_share_by_category
+        description: "Percentage that represents the sale over the total of its category"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                max_value: 100
+                inclusive: true

@@ -1,8 +1,9 @@
 WITH staging AS (
     SELECT 
         product_id,
-        status,
+        order_id,
         product_line,
+        status,
         total_sales_amount 
     FROM {{ ref('stg_sales') }}
 ),
@@ -10,13 +11,14 @@ WITH staging AS (
 get_category_sales AS (
     SELECT
         product_id,
+        order_id,
         product_line,
+        status,
         total_sales_amount,
         SUM(total_sales_amount) OVER (
             PARTITION BY product_line
         ) AS category_total_sales
     FROM staging
-    WHERE status = 'Shipped'
 ),
 
 calculate_share AS (
@@ -28,7 +30,9 @@ calculate_share AS (
 
 SELECT
     product_id,
+    order_id,
     product_line,
+    status,
     total_sales_amount,
     percentage_share_by_category
 FROM calculate_share

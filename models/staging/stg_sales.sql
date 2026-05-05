@@ -21,6 +21,7 @@ renamed AS (
         COUNTRY AS country
 
     FROM source
+    WHERE STATUS = 'Shipped'
 )
 
 SELECT * FROM renamed
