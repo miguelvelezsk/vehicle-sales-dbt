@@ -7,4 +7,4 @@ sources:
       - name: ext_sales
         description: "Raw sales data from electronics store."
         meta:
-          external_location: "raw_data/sales_data_sample.csv"
+          external_location: "raw_data/sales_data_sample_clean.csv"
