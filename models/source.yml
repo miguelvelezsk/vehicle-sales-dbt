@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw_store_data
+    schema: main
+    tables:
+      - name: ext_sales
+        description: "Raw sales data from electronics store."
+        meta:
+          external_location: "raw_data/sales_data_sample.csv"

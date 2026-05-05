@@ -1,3 +1,6 @@
 target/
 dbt_packages/
 logs/
+raw_data/
+dev.duckdb*
+.user.yml
