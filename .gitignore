@@ -4,3 +4,5 @@ logs/
 raw_data/
 dev.duckdb*
 .user.yml
+package-lock.yml
+packages.yml
