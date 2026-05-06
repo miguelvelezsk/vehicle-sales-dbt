@@ -24,5 +24,4 @@ final AS (
 )
 
 SELECT * FROM final
-ORDER BY percentage_share_by_category DESC
 
